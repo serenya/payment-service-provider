@@ -1,6 +1,5 @@
 using System;
 using System.Threading.Tasks;
-using AutoMapper;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using NSubstitute;
@@ -35,12 +34,12 @@ namespace PaymentGateway.Application.UnitTests
                 .Returns(new Merchant { Id = merchantId, Iban = "DE91100000000123456789" });
             var paymentRepository = Substitute.For<IPaymentRepository>();
             var unitOfWork = Substitute.For<IUnitOfWork>();
-            var mapper = Substitute.For<IMapper>();
             var logger = Substitute.For<ILogger<ProcessPaymentRequestCommandHandler>>();
 
             var command = new ProcessPaymentRequestCommand(
                     merchantId: merchantId,
                     cardNumber: "4463879623345671",
+                    cardHolderName: "Johan Slivchenko",
                     expiryMonth: 10,
                     expiryYear: 2020,
                     chargeTotal: 135m,
@@ -53,7 +52,6 @@ namespace PaymentGateway.Application.UnitTests
                 merchantRepository,
                 paymentRepository,
                 unitOfWork,
-                mapper,
                 logger);
             var result = await handler.Handle(command);
 
@@ -81,12 +79,12 @@ namespace PaymentGateway.Application.UnitTests
                 .Returns(new Merchant { Id = merchantId, Iban = "DE91100000000123456789" });
             var paymentRepository = Substitute.For<IPaymentRepository>();
             var unitOfWork = Substitute.For<IUnitOfWork>();
-            var mapper = Substitute.For<IMapper>();
             var logger = Substitute.For<ILogger<ProcessPaymentRequestCommandHandler>>();
 
             var command = new ProcessPaymentRequestCommand(
                     merchantId: merchantId,
                     cardNumber: "4463879623345671",
+                    cardHolderName: "Johan Slivchenko",
                     expiryMonth: 10,
                     expiryYear: 2020,
                     chargeTotal: 135m,
@@ -99,7 +97,6 @@ namespace PaymentGateway.Application.UnitTests
                 merchantRepository,
                 paymentRepository,
                 unitOfWork,
-                mapper,
                 logger);
             var result = await handler.Handle(command);
 
