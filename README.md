@@ -1,4 +1,4 @@
-![](https://github.com/serenya/payment-service-provider/workflows/ci-on-push/badge.svg)
+![](https://github.com/serenya/payment-service-provider/workflows/CI%20on%20push/badge.svg)
 
 # About Payment Service Provider
 
@@ -40,7 +40,7 @@ payment requests and fetching details about done payments.
 
 Feel free to import collection with environment and play around with Payment Gateway API.
 
-## Improvements
+## Further improvements
 
 As a potential improvements following tasks have to be taken into account for the nearest future:
 
