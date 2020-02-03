@@ -12,6 +12,9 @@ using PaymentGateway.Application.Queries;
 
 namespace PaymentGateway.Api.Controllers
 {
+    /// <summary>
+    /// Provides endpoints for processing payment requests and get payment details
+    /// </summary>
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
@@ -26,6 +29,10 @@ namespace PaymentGateway.Api.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Return payment details
+        /// </summary>
+        /// <param name="id">Payment unique identifier</param>
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(PaymentDetailsModel), (int)HttpStatusCode.OK)]
         public async Task<PaymentDetailsModel> Get(Guid id)
@@ -35,6 +42,11 @@ namespace PaymentGateway.Api.Controllers
             return paymentDetails;
         }
 
+        /// <summary>
+        /// Process payment request
+        /// </summary>
+        /// <param name="model">Payment request</param>
+        /// <returns>Payment result</returns>
         [HttpPost]
         [ProducesResponseType(typeof(PaymentResultModel), (int)HttpStatusCode.OK)]
         public async Task<PaymentResultModel> Post([FromBody] PaymentRequestModel model)

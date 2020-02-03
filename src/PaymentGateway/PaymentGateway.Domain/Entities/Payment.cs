@@ -16,6 +16,9 @@ namespace PaymentGateway.Domain.Entities
 
         public Price ChargeTotal { get; private set; }
 
+        /// <summary>
+        /// ISO 4217
+        /// </summary>
         public string CurrencyCode { get; private set; }
 
         public PaymentStatus Status { get; private set; }
@@ -37,11 +40,17 @@ namespace PaymentGateway.Domain.Entities
             Status = PaymentStatus.Initiated;
         }
 
+        /// <summary>
+        /// Mark payment as successful
+        /// </summary>
         public void Succeed()
         {
             Status = PaymentStatus.Successful;
         }
 
+        /// <summary>
+        /// Mark payment as failed
+        /// </summary>
         public void Fail()
         {
             Status = PaymentStatus.Failed;

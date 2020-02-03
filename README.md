@@ -1,3 +1,5 @@
+![](https://github.com/serenya/payment-service-provider/workflows/ci-on-push/badge.svg)
+
 # About Payment Service Provider
 
 Represents API based application that allow merchants to offer a way for their shoppers to pay for products.
@@ -42,8 +44,12 @@ Feel free to import collection with environment and play around with Payment Gat
 
 As a potential improvements following tasks have to be taken into account for the nearest future:
 
+- Improve validation errors
 - Improve exception handling
 - Setup secure communication between Payment Gateway and Acquiring Bank
 - Implement MerchantRepository
 - Read MerchantId from claims
 - Add MessageQueue in case of long-running requests on Acquiring Bank side
+- Add Swagger/OpenAPI support
+- Use Polly for 3rd-party communications
+- Add CorrelationId to trace customer requests
